@@ -29,7 +29,8 @@ pipeline{
             step{
                 script{
                     // This step should not normally be used in your script. Consult the inline help for details.
-                withDockerRegistry(credentialsId: 'ecr:us-east-1:clin-id', url: 'https://727732356710.dkr.ecr.us-east-1.amazonaws.com') {
+                    withDockerRegistry(credentialsId: 'ecr:us-east-1:job-id', url: 'https://727732356710.dkr.ecr.us-east-1.amazonaws.com/') {
+
                     sh "docker push 727732356710.dkr.ecr.us-east-1.amazonaws.com/job-portal/ecr:${params.MYJOB}"
                     sh "docker push 727732356710.dkr.ecr.us-east-1.amazonaws.com/job-portal/ecr:latest"
                 }
